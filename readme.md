@@ -1,5 +1,5 @@
 # NexusPHP-Docker
-NexusPHP5.6的docker环境\
+NexusPHP的php5.6版本的docker运行环境\
 `Nginx+PHP5.6+Memcache+phpmyadmin+Mysql`
 # Usage
 ```

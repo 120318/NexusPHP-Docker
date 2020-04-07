@@ -20,7 +20,7 @@ php5.6-interbase php5.6-ldap php5.6-tidy php5.6-memcache \
 php5.6-memcached php-tcpdf php-redis php-imagick php-mongodb;
 
 RUN apt-get install -yq mariadb-server mariadb-client; \
-cd /var/www/html && ( \
+cd / && ( \
   wget -q https://files.phpmyadmin.net/phpMyAdmin/$PHPMYADMIN/phpMyAdmin-$PHPMYADMIN-all-languages.zip; \
   unzip -oq phpMyAdmin-$PHPMYADMIN-all-languages.zip; \
   mv phpMyAdmin-$PHPMYADMIN-all-languages pma; \

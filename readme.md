@@ -17,7 +17,7 @@ dearjoey/nexusphp
 1. `${nexusphp_code_path}` 是NexusPHP代码存放目录
 2. `80`是Nginx端口
 3. `3306`是DB端口，DB默认账户Root
-4. 可以通过`http://localhost/pam/index.php`设置数据库
+4. 可以通过`http://localhost/pam/index.php`管理数据库
 # Reference
 在 https://github.com/fbraz3/lemp-docker 基础上做了一些修改。
 

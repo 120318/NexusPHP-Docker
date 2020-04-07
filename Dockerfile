@@ -1,4 +1,3 @@
-# edited from https://raw.githubusercontent.com/fbraz3/lemp-docker/master/Dockerfile
 FROM ubuntu:18.04
 
 ARG PHPMYADMIN=4.8.5

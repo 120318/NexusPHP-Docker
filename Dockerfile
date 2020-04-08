@@ -29,9 +29,9 @@ cd / && ( \
 
 RUN apt-get install -y memcached;
 
-COPY ./nginx/default /etc/nginx/sites-enabled/default
-COPY ./mysql/add_user.sql /tmp/add_user.sql
-COPY ./phpmyadmin/config.inc.php /var/www/html/pma/config.inc.php
+COPY nginx/default /etc/nginx/sites-enabled/default
+COPY mysql/add_user.sql /tmp/add_user.sql
+COPY phpmyadmin/config.inc.php /var/www/html/pma/config.inc.php
 RUN service mysql start && mysql < /tmp/add_user.sql
 
 CMD service nginx start && service memcached start \

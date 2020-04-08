@@ -7,7 +7,7 @@ server {
     root /NexusPHP;
 
     location /pma/ {
-        root /pma;
+        root /;
         index index.php;
         location ~ \.php$ {
             fastcgi_buffer_size 128k;

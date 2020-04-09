@@ -29,6 +29,11 @@ cd / && ( \
 
 RUN apt-get install -y memcached;
 
+
+RUN wget -q http://pear.php.net/go-pear.phar;\
+php go-pear.phar;\
+pear install HTTP_Request2-2.3.0
+
 COPY nginx/default /etc/nginx/sites-enabled/default
 COPY mysql/add_user.sql /tmp/add_user.sql
 COPY phpmyadmin/config.inc.php /pma/config.inc.php

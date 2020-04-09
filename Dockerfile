@@ -37,6 +37,8 @@ pear install HTTP_Request2-2.3.0
 COPY nginx/default /etc/nginx/sites-enabled/default
 COPY mysql/add_user.sql /tmp/add_user.sql
 COPY phpmyadmin/config.inc.php /pma/config.inc.php
+COPY php/php.ini  /etc/php/5.6/fpm/
+
 RUN service mysql start && mysql < /tmp/add_user.sql
 
 CMD service nginx start && service memcached start \

@@ -18,6 +18,7 @@ dearjoey/nexusphp
 2. `80`是Nginx端口
 3. `3306`是DB端口，DB默认用户名Root, 默认密码为空
 4. 可以通过`http://localhost/pam/index.php`管理数据库 <br />
+5. `nginx`日志在`/var/log/nginx`目录下，`php-fpm`和`php`错误日志都在`/var/log/php`目录下
 
 # Reference
 在 https://github.com/fbraz3/lemp-docker 基础上做了一些修改。

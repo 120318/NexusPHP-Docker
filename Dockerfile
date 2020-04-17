@@ -34,10 +34,16 @@ RUN wget -q http://pear.php.net/go-pear.phar;\
 php go-pear.phar;\
 pear install HTTP_Request2-2.3.0
 
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
 COPY nginx/default /etc/nginx/sites-enabled/default
 COPY mysql/add_user.sql /tmp/add_user.sql
 COPY phpmyadmin/config.inc.php /pma/config.inc.php
 COPY php/php.ini  /etc/php/5.6/fpm/
+COPY php/php-fpm.conf /etc/php/5.6/fpm/
+COPY php/www.conf /etc/php/5.6/fpm/pool.d/
+
+RUN mkdir -p  /var/log/php && chown www-data:www-data /var/log/php
 
 RUN service mysql start && mysql < /tmp/add_user.sql
 

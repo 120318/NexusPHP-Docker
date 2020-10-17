@@ -9,7 +9,7 @@ software-properties-common apt-transport-https
 
 RUN add-apt-repository -y ppa:ondrej/php; \
 export DEBIAN_FRONTEND=noninteractive; \
-apt-get install -yq php5.6 php5.6-cli \ 
+apt-get install -yq php5.6 php5.6-cli \
 php5.6-common php5.6-curl php5.6-fpm php5.6-json \
 php5.6-mysql php5.6-opcache php5.6-readline \
 php5.6-xml php5.6-xsl php5.6-gd php5.6-intl \

@@ -29,24 +29,19 @@ cd / && ( \
 
 RUN apt-get install -y memcached;
 
-
-RUN wget -q http://pear.php.net/go-pear.phar;\
-php go-pear.phar;\
-pear install HTTP_Request2-2.3.0
-
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
-COPY nginx/default /etc/nginx/sites-enabled/default
-COPY mysql/add_user.sql /tmp/add_user.sql
-COPY phpmyadmin/config.inc.php /pma/config.inc.php
-COPY php/php.ini  /etc/php/5.6/fpm/
-COPY php/php-fpm.conf /etc/php/5.6/fpm/
-COPY php/www.conf /etc/php/5.6/fpm/pool.d/
+COPY root/ /
 
-RUN mkdir -p  /var/log/php && chown www-data:www-data /var/log/php
+RUN chmod +x /etc/init.d/*
+COPY shell/ /
 
-RUN service mysql start && mysql < /tmp/add_user.sql
+COPY root/defaults/phpmyadmin/config.inc.php /pma/config.inc.php
 
-CMD service nginx start && service memcached start \
-&& service mysql start  && service php5.6-fpm start \
-&& tail -f /dev/null;
+RUN wget -q https://sourceforge.net/projects/nexusphp/files/latest/download -O defaults/nexusphp.v1.5.beta5.20120707.zip;\
+    unzip -oq /defaults/nexusphp.v1.5.beta5.20120707.zip -d /defaults/;\
+    mkdir /NexusPHP
+
+RUN service mysql start && mysql < /defaults/mysql/init_table.sql && mysql nexusphp < /defaults/nexusphp.v1.5.beta5.20120707/_db/dbstructure.sql && mysql < /defaults/mysql/add_user.sql
+
+CMD bash /start.sh && tail -f /dev/null

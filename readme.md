@@ -7,8 +7,7 @@ NexusPHP的php5.6版本的docker运行环境\
 ``` shell
 docker run -d --name=nexusphp -p 80:80  dearjoey/nexusphp
 ```
-2. 访问 \
-访问 http://localhost/inex.php 注册账户登录即可。
+2. 访问 http://localhost/index.php 注册账户登录即可。
 > 如果你想修改数据库 访问 [`phpmyadmin`](http://localhost/pma/index.php)
 
 ## 其他参数

@@ -10,7 +10,7 @@ docker run -d --name=nexusphp -p 80:80  dearjoey/nexusphp
 2. 访问 http://localhost/login.php 登录即可。(账户名: `staff`  密码: `123456`)
 > 如果你想修改数据库 访问 [`phpmyadmin`](http://localhost/pma/index.php)
 
-## 其他参数
+## 参数
 | 参数 | 功能 |
 | - | - |
 | -p 80 | NexusPHP和phpmyadmin的访问端口
